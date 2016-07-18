@@ -1,1 +1,133 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- d3 -->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+
+	<script src="oDemo.js"></script>
+
+	<!-- font -->
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<style>
+	/* Navbar scroll down animations*/
+		body { 
+				margin-top: 7%;
+				text-align: center;}
+		header {
+			height: 18%;
+			position: fixed;
+			top: 0;
+			transition: top 0.2s ease-in-out;
+			background-color: rgb(61,58,58);
+			width: 100%;
+
+
+			/*TEMP*/
+			border: 1px solid black;
+		}
+		.node {
+		  stroke: #fff;
+		  stroke-width: 1.5px;
+		}
+
+		.link {
+		  stroke: #999;
+		  stroke-opacity: .6;
+		}
+		svg {
+			border:1px solid black;
+
+		}
+
+	/*navigation bar positioning*/
+	/*http://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_black_right*/
+		.name {
+			/*the header name Ziquan Miao*/
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 300%;
+			float: middle;
+			/*padding-left: 4%;*/
+			padding-top: 2%;
+			color: rgb(88,88,88);
+		}
+		.navBar{ /* ul */
+			float: left;
+			height:100%;
+			width: 15%;
+			padding: 0;
+			padding-top: 2%;
+			text-align: center;
+			overflow: hidden;
+			background-color: rgb(61,58,58);
+			position: fixed;
+			/*background-color:#333;*/
+
+		}
+
+		.navBar li {
+			display: block;
+			padding-left: 1%;
+			padding-top: 4%;
+			margin-top:3%;
+			color: #818181;
+		}
+
+		.main {
+			width: 60%;
+			height: 100%;
+			left:20%;
+			margin-left: 30%;
+			margin-right: auto;
+			text-align: left;
+			padding-top: 3%;
+
+		}
+		.written{
+			margin-right: 20px;
+		}
+		
+	</style>
+	<title>
+		Ziquan Miao!!!!!!!!!!
+	</title>
+</head>
+<body>
+	<header>
+		<div class="name"> Ziquan Miao</div>
+	</header>
+
+	<div class="side">
+		<ul class="navBar">
+			<li>About</li>
+			<li>Contact</li>
+			<li>Other</li>
+			<li>Social Media</li>
+		</ul>
+	</div>
+	<div class="main"> 
+		<h1 class="writtenTitle">The Office Network</h3>
+		<p class="written">This short paper was inspired by Macalester College students Andrew Beveridge and Jie Shan's application of graph theory to determine protagonism through analyze of character interactions in the Game of Thrones series. As a huge fan of the Game of Thrones and the Office, I realized there was a lot of opportunity to emulate the research done. In this article, I emulate the procedure using D3 as a medium for visualizing the network structure of my design. 
+			In addition, I will also provide the github link for much of my work. Hopefully it is helpful for work of similar nature!</p>
+		<h3 class="writtenSubtitle">Outline of Procedure</h3>
+		<ol class="writtenList">
+			<li class="writtenList1">Start in Python. Clean and format raw transcript data from the Office </li>
+			<p> I was lucky enough to find raw transcript data from <a href="http://transcripts.foreverdreaming.org/viewforum.php?f=574&sid=6743b43d3936339800ff86d9474bd082">foreverdreaming.org</a>. The site was helpful in that they also seperated the scenes using a unique delimiter which ultimately allowed for us to define a network structure. The plan originally was to use the <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> library to download each episode in each season using a http link, but the web moderators seemed to be against the idea. So I ran BeautifulSoup through a local folder containing manually downloaded raw html files. I was able to record what each character said in each scene of every downloaded episode. </p>
+			<li class="writtenList1">Define what constitutes a node and edge within the social network</li>
+			<p> I defined the nodes as the set of characters who speak more than 25 times in the summation of a season. I incremented the link between two characters every time they spoke together in the same scene </p>
+			<li class="writtenList1">Compute graph theory metrics and export as a JSON file</li>
+			<p>I used the same metrics used by the Malacaster researchers like Betweenness Centrality, Degree Centrality, Closeness Centrality, and Page Rank as protagonism related metrics.</p>
+			<li class="writtenList1">Visualize using D3 force networks </li>
+			<!-- <li class="writtenList1"></li> -->
+		</ol>
+		<div id="graph"></div>
+		<p>The social network generated from Season 3 of the Office. The color of the node determines computed the closeness centrality. The size of the node is the pageRank value. The label size is the betweenness centrality of the label. The thickness and darkness of the links represent the weight of the vectors or the number of times two characters speak in the same scene.</p>
+		<p> </p>
+		<div id="bars"></div>
+	</div>
+	<footer></footer>
+</body>
+
+</html>
