@@ -13,7 +13,7 @@ function makeGraph(DOM_PATH){
 	var width = svg_width,
         height = svg_height;
 
-    var color = d3.scale.linear()
+    var color = d3.scaleLinear()
     			.domain([0.2,1])
     			.range(["blue","yellow"]);
     var strokeColor;
