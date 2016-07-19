@@ -8,6 +8,7 @@ $(document).ready(function(){
 })
 
 var g = d3
+console.log(g)
 function makeGraph(DOM_PATH){
 	var width = svg_width,
         height = svg_height;
