@@ -29,7 +29,7 @@ function makeGraph(DOM_PATH){
 				.size([width,height]);
 
 // read data
-	d3.json("NetworkDemo/officeStuff.json", function(error, graph) {
+	d3.json("officeStuff.json", function(error, graph) {
 		if(error) throw error;
 
 		// assign nodes//links
